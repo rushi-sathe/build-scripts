@@ -19,7 +19,7 @@
 # ----------------------------------------------------------------------------
 
 PACKAGE_NAME=libprotobuf
-PACKAGE_VERSION=${1:-v4.25.3}
+PACKAGE_VERSION=${1:-v4.25.8}
 PACKAGE_URL=https://github.com/protocolbuffers/protobuf
 PACKAGE_DIR="protobuf"
 WORK_DIR=$(pwd)
@@ -96,7 +96,7 @@ cmake --install .
 cd ..
 
 #create pyproject.toml for libprotobuf
-wget https://raw.githubusercontent.com/ppc64le/build-scripts/refs/heads/master/l/libprotobuf/pyproject.toml
+wget https://raw.githubusercontent.com/rushi-sathe/build-scripts/refs/heads/master/l/libprotobuf/pyproject.toml
 sed -i s/{PACKAGE_VERSION}/$PACKAGE_VERSION/g pyproject.toml
 
 python -m pip wheel -w $WORK_DIR -vv --no-build-isolation --no-deps .
